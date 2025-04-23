@@ -93,6 +93,7 @@ public sealed class ExploreContext
     public string CursorName(CXCursor cursor)
     {
         var result = clang_getCursorSpelling(cursor).String();
+        // Investigate this.. not sure what changed to cause this to be needed.
         if (result.Contains("(anonymous at", StringComparison.InvariantCulture))
         {
             return string.Empty;
